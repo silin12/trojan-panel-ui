@@ -116,3 +116,29 @@ export function nodeDefault(data) {
     params: data
   })
 }
+
+/**
+ * 导出节点
+ * @param data
+ * @returns {*}
+ */
+export function exportNode(data) {
+  return request({
+    url: '/node/exportNode',
+    method: 'post',
+    data
+  })
+}
+
+/**
+ * 导入节点
+ * @param data
+ * @returns {*}
+ */
+export function importNode(data) {
+  return request({
+    url: '/node/importNode',
+    method: 'post',
+    data
+  })
+}

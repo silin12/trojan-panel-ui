@@ -49,6 +49,24 @@
       >
         {{ $t('table.clashSubscribe') }}
       </el-button>
+      <el-button
+        class="filter-item"
+        type="success"
+        icon="el-icon-upload2"
+        @click="handleImport"
+        v-if="checkPermission(['sysadmin'])"
+      >
+        {{ $t('table.import') }}
+      </el-button>
+      <el-button
+        class="filter-item"
+        type="success"
+        icon="el-icon-download"
+        @click="handleExport"
+        v-if="checkPermission(['sysadmin'])"
+      >
+        {{ $t('table.export') }}
+      </el-button>
     </div>
     <el-table
       :key="tableKey"
@@ -207,6 +225,14 @@
       :dialog-visible-props.sync="dialogQRCodeVisible"
       :qr-code-src-props="qrCodeSrc"
     />
+
+    <ImportTip
+      ref="importTip"
+      :dialog-form-visible.sync="importVisible"
+      :label="$t('table.coverByNodeName')"
+      :import-data="importData"
+      :download-template="downloadTemplate"
+    />
   </div>
 </template>
 
@@ -218,6 +244,8 @@ import { Message, MessageBox } from 'element-ui'
 import copy from 'copy-to-clipboard'
 import {
   deleteNodeById,
+  exportNode,
+  importNode,
   nodeDefault,
   nodeQRCode,
   nodeURL,
@@ -239,6 +267,7 @@ import { selectNodeServerList } from '@/api/node-server'
 import FallbackForm from '@/views/node/list/components/FallbackForm'
 import FallbackInfo from '@/views/node/list/components/FallbackInfo'
 import NodeForm from '@/views/node/list/components/NodeForm'
+import ImportTip from '@/components/ImportTip'
 
 export default {
   name: 'index',
@@ -248,6 +277,7 @@ export default {
     FallbackForm,
     NodeQrcode,
     NodeDetail,
+    ImportTip,
     Pagination
   },
   filters: {
@@ -450,6 +480,7 @@ export default {
       },
       dialogStatus: '',
       dialogFormVisible: false,
+      importVisible: false,
       dialogInfoVisible: false,
       dialogQRCodeVisible: false,
       qrCodeSrc: '',
@@ -470,6 +501,75 @@ export default {
     timeStampToDate,
     checkPermission,
     nodeServerFind,
+    handleImport() {
+      this.importVisible = true
+    },
+    handleExport() {
+      exportNode().then(() => {
+        this.$notify({
+          title: 'Success',
+          message: this.$t('confirm.taskSubmitSuccess'),
+          type: 'success',
+          duration: 2000
+        })
+      })
+    },
+    importData(params) {
+      this.$refs['importTip'].$refs['dataForm'].validate((valid) => {
+        if (valid) {
+          const tempData = Object.assign({}, this.$refs['importTip'].temp)
+          const formData = new FormData()
+          formData.append('file', params.file)
+          formData.append('cover', tempData.cover)
+          importNode(formData).then(() => {
+            this.importVisible = false
+            this.$notify({
+              title: 'Success',
+              message: this.$t('confirm.taskSubmitSuccess'),
+              type: 'success',
+              duration: 2000
+            })
+            setTimeout(() => {
+              this.getList()
+            }, 1500)
+          })
+        }
+      })
+    },
+    // 节点导入模板：本地生成一份示例，避免依赖后端模板文件
+    downloadTemplate() {
+      const template = [
+        {
+          name: 'hk-01',
+          nodeServerIp: '1.2.3.4',
+          nodeServerGrpcPort: 8100,
+          nodeTypeId: 1,
+          nodeTypeName: 'xray',
+          domain: 'example.com',
+          port: 443,
+          priority: 100,
+          xrayProtocol: 'vless',
+          xrayFlow: 'xtls-rprx-vision',
+          xraySSMethod: 'aes-256-gcm',
+          realityPbk: '',
+          xraySettings: '',
+          xrayStreamSettings: '',
+          xrayTag: 'user',
+          xraySniffing: '',
+          xrayAllocate: ''
+        }
+      ]
+      const blob = new Blob([JSON.stringify(template, null, 2)], {
+        type: 'application/json'
+      })
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      document.body.appendChild(a)
+      a.href = url
+      a.download = 'NodeTemplate.json'
+      a.click()
+      window.URL.revokeObjectURL(url)
+    },
     nodeTypeFind,
     setNodeTypes() {
       selectNodeTypeList().then((response) => {

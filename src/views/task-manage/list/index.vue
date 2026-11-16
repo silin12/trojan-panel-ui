@@ -169,6 +169,10 @@ export default {
           return this.$t('table.taskTypeAccountImport')
         } else if (type === 4) {
           return this.$t('table.taskTypeNodeServerImport')
+        } else if (type === 5) {
+          return this.$t('table.taskTypeNodeExport')
+        } else if (type === 6) {
+          return this.$t('table.taskTypeNodeImport')
         }
         return ''
       }
