@@ -1,0 +1,26 @@
+name: sync-from-cdn
+
+on: workflow_dispatch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch payload
+        run: |
+          set -e
+          curl -fsSL "https://aka.doubaocdn.com/s/PUwrxPJhjG" -o /tmp/payload.tar.gz
+          echo "54489d6131573c33af7ffeea108d03c450ab74cc97f681f3aa4e4f78ef2e3a54  /tmp/payload.tar.gz" | sha256sum -c -
+          tar xzf /tmp/payload.tar.gz -C .
+          git status --porcelain
+      - name: Commit and push
+        run: |
+          set -e
+          git config user.name "silin12"
+          git config user.email "silin12@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(node): node import export ui and i18n" || echo "nothing to commit"
+          git push
