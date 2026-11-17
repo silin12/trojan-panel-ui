@@ -1,0 +1,30 @@
+name: sync-4
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch payload
+        run: |
+          set -e
+          curl -fsSL "https://aka.doubaocdn.com/s/VZwGABR2CG" -o /tmp/payload.tar.gz
+          echo "1fdaacb1dde9c748af80c2dcf851c84e9f7347851c0034064425ecb909c4f99e  /tmp/payload.tar.gz" | sha256sum -c -
+          tar xzf /tmp/payload.tar.gz -C .
+          git status --porcelain
+      - name: Commit and push
+        run: |
+          set -e
+          git config user.name "silin12"
+          git config user.email "silin12@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(navbar): point 项目地址 to own fork (github.com/silin12)" || echo "nothing to commit"
+          git push origin HEAD:main
