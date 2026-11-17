@@ -37,7 +37,7 @@
           </router-link>
           <a
             target="_blank"
-            href="https://github.com/trojanpanel"
+            href="https://github.com/silin12"
             v-if="checkPermission(['sysadmin', 'admin'])"
           >
             <el-dropdown-item>{{ $t('navbar.github') }}</el-dropdown-item>
