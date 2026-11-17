@@ -47,6 +47,7 @@
           active-color="#13ce66"
           inactive-color="#ff4949"
         />
+        <div class="form-tip">{{ $t('config.resetDownloadAndUploadMonthTip') }}</div>
       </el-form-item>
       <el-form-item
         :label="$t('config.trafficRankEnable')"

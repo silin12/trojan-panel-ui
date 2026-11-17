@@ -85,6 +85,50 @@
         />
       </el-form-item>
 
+      <el-form-item
+        :label="$t('config.expireWarnOnDay')"
+        prop="expireWarnOnDay"
+      >
+        <el-switch
+          v-model="systemConfig.expireWarnOnDay"
+          :active-value="1"
+          :inactive-value="0"
+          class="ml-2"
+          active-color="#13ce66"
+          inactive-color="#ff4949"
+          :disabled="emailDisable || expireWarnDisable"
+        />
+      </el-form-item>
+
+      <el-form-item
+        :label="$t('config.quotaWarnEnable')"
+        prop="quotaWarnEnable"
+      >
+        <el-switch
+          v-model="systemConfig.quotaWarnEnable"
+          :active-value="1"
+          :inactive-value="0"
+          class="ml-2"
+          active-color="#13ce66"
+          inactive-color="#ff4949"
+          :disabled="emailDisable"
+        />
+      </el-form-item>
+
+      <el-form-item
+        :label="$t('config.quotaWarnPercent')"
+        prop="quotaWarnPercent"
+      >
+        <el-input-number
+          v-model.number="systemConfig.quotaWarnPercent"
+          controls-position="right"
+          type="number"
+          :min="1"
+          :max="100"
+          :disabled="emailDisable || quotaWarnDisable"
+        />
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" @click="updateData()"
           >{{ $t('table.confirm') }}
@@ -111,6 +155,9 @@ export default {
     },
     expireWarnDisable: function () {
       return this.systemConfig.expireWarnEnable === 0
+    },
+    quotaWarnDisable: function () {
+      return this.systemConfig.quotaWarnEnable === 0
     }
   },
   data() {
@@ -178,6 +225,34 @@ export default {
             min: 0,
             max: 365,
             message: this.$t('valid.expireWarnDayRange'),
+            trigger: ['change', 'blur']
+          }
+        ],
+        expireWarnOnDay: [
+          {
+            required: true,
+            message: this.$t('valid.expireWarnOnDay'),
+            trigger: ['change', 'blur']
+          }
+        ],
+        quotaWarnEnable: [
+          {
+            required: true,
+            message: this.$t('valid.quotaWarnEnable'),
+            trigger: ['change', 'blur']
+          }
+        ],
+        quotaWarnPercent: [
+          {
+            required: true,
+            message: this.$t('valid.quotaWarnPercent'),
+            trigger: ['change', 'blur']
+          },
+          {
+            type: 'number',
+            min: 1,
+            max: 100,
+            message: this.$t('valid.quotaWarnPercentRange'),
             trigger: ['change', 'blur']
           }
         ]
