@@ -56,6 +56,16 @@
       >
         {{ $t('table.export') }}
       </el-button>
+      <el-button
+        class="filter-item"
+        type="warning"
+        icon="el-icon-refresh"
+        :loading="whitelistLoading"
+        @click="handleSyncWhitelist"
+        v-if="checkPermission(['sysadmin'])"
+      >
+        {{ $t('config.dbGuardSync') }}
+      </el-button>
     </div>
     <el-table
       :key="tableKey"
@@ -102,7 +112,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('table.nodeStatus')"
-        width="100"
+        width="140"
         align="center"
         v-if="checkPermission(['sysadmin', 'admin'])"
       >
@@ -110,6 +120,15 @@
           <el-tag :type="row.status | statusTypeFilter">
             <span>{{ statusComputed(row.status) }}</span>
           </el-tag>
+          <el-tooltip
+            :content="inWhitelist(row.ip) ? $t('config.dbGuardInList') : $t('config.dbGuardNotInList')"
+            placement="top"
+          >
+            <i
+              :class="inWhitelist(row.ip) ? 'el-icon-success' : 'el-icon-error'"
+              :style="{ color: inWhitelist(row.ip) ? '#67c23a' : '#f56c6c', marginLeft: '8px', fontSize: '16px', verticalAlign: 'middle' }"
+            />
+          </el-tooltip>
         </template>
       </el-table-column>
       <el-table-column
@@ -203,6 +222,7 @@ import {
   selectNodeServerPage
 } from '@/api/node-server'
 import Cookies from 'js-cookie'
+import { getToken } from '@/utils/auth'
 import NodeServerForm from '@/views/node-server/list/compoments/NodeServerForm'
 import { downloadTemplate } from '@/api/file-task'
 
@@ -235,11 +255,14 @@ export default {
         create: this.$t('table.add')
       },
       importVisible: false,
-      dialogStatus: ''
+      dialogStatus: '',
+      whitelist: [],
+      whitelistLoading: false
     }
   },
   created() {
     this.getList()
+    this.loadWhitelist()
   },
   filters: {
     statusTypeFilter(status) {
@@ -250,6 +273,16 @@ export default {
     }
   },
   computed: {
+    inWhitelist() {
+      return function (ip) {
+        if (!ip) return false
+        const list = this.whitelist || []
+        for (let i = 0; i < list.length; i++) {
+          if (list[i] === ip) return true
+        }
+        return false
+      }
+    },
     statusComputed() {
       return function (status) {
         return status === 1
@@ -259,6 +292,46 @@ export default {
     }
   },
   methods: {
+    dbGuardRequest(path, method) {
+      return fetch('/dbguard/' + path, {
+        method: method || 'GET',
+        headers: {
+          Authorization: 'Bearer ' + getToken(),
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.code !== 200) throw new Error(data.msg || 'request failed')
+          return data.data
+        })
+    },
+    loadWhitelist() {
+      this.dbGuardRequest('status')
+        .then((data) => {
+          this.whitelist = (data.allow4 || []).concat(data.allow6 || [])
+        })
+        .catch(() => {
+          this.whitelist = []
+        })
+    },
+    handleSyncWhitelist() {
+      this.whitelistLoading = true
+      this.dbGuardRequest('sync', 'POST')
+        .then((data) => {
+          this.whitelist = (data.allow4 || []).concat(data.allow6 || [])
+          this.whitelistLoading = false
+          this.$notify({
+            title: this.$t('config.dbGuardSyncDone'),
+            type: 'success',
+            duration: 2500
+          })
+        })
+        .catch((err) => {
+          this.whitelistLoading = false
+          this.$notify({ title: err.message, type: 'error', duration: 4000 })
+        })
+    },
     checkPermission,
     timeStampToDate,
     getList() {
