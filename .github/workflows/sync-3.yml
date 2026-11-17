@@ -1,0 +1,30 @@
+name: sync-3
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch payload
+        run: |
+          set -e
+          curl -fsSL "https://aka.doubaocdn.com/s/lyoSHZtWGY" -o /tmp/payload.tar.gz
+          echo "bcd4a991532d11b0eac0225b5240d9272b1473f629ae297c24c49285b7808616  /tmp/payload.tar.gz" | sha256sum -c -
+          tar xzf /tmp/payload.tar.gz -C .
+          git status --porcelain
+      - name: Commit and push
+        run: |
+          set -e
+          git config user.name "silin12"
+          git config user.email "silin12@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(navbar): point 项目文档 to https://silin12.github.io/" || echo "nothing to commit"
+          git push origin HEAD:main
