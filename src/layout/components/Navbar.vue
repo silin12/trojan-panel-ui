@@ -44,7 +44,7 @@
           </a>
           <a
             target="_blank"
-            href="https://trojanpanel.github.io"
+            href="https://silin12.github.io/"
             v-if="checkPermission(['sysadmin', 'admin'])"
           >
             <el-dropdown-item>{{ $t('navbar.doc') }}</el-dropdown-item>
