@@ -1,465 +1,880 @@
-export default {
-  route: {
-    dashboard: 'Dashboard',
-    serverManage: 'Server Manage',
-    serverList: 'Server List',
-    serverDetail: 'Server Detail',
-    nodeManage: 'Node Manage',
-    nodeList: 'Node List',
-    accountManage: 'Account Manage',
-    accountList: 'Account List',
-    modifyPass: 'Change Password',
-    system: 'System Config',
-    baseConfig: 'Basic Config',
-    blackList: 'Black List Config',
-    emailManage: 'Email Manage',
-    emailRecord: 'Send Record',
-    profile: 'Profile',
-    taskManage: 'TaskManage',
-    taskList: 'TaskList',
-    modify: 'Modify Property'
-  },
-  navbar: {
-    size: 'Global Size',
-    profile: 'Profile',
-    github: 'Github',
-    doc: 'Docs',
-    logout: 'Log Out'
-  },
-  login: {
-    title: 'Trojan Panel',
-    logIn: 'Login',
-    username: 'Username',
-    password: 'Password',
-    register: 'No account?',
-    code: 'verification code'
-  },
-  register: {
-    title: 'User Registration',
-    username: 'Username',
-    passOne: 'Password',
-    pass: 'Password',
-    email: 'Email(Only support 163 126 qq gmail)',
-    register: 'Register',
-    login: 'Back to Login'
-  },
-  table: {
-    enable: 'Enable',
-    disable: 'Disable',
-    search: 'Search',
-    add: 'Add',
-    clashSubscribe: 'Clash.Meta Subscribe',
-    clashSubscribeForSb: 'Copy Subscribe',
-    actions: 'Actions',
-    edit: 'Edit',
-    delete: 'Delete',
-    cancel: 'Cancel',
-    confirm: 'Confirm',
-    id: 'ID',
-    status: 'Status',
-    username: 'Username',
-    role: 'Role',
-    quota: 'Quota',
-    download: 'Download',
-    upload: 'Upload',
-    editQuota: 'Quota/MB',
-    flow: 'Residual Flow',
-    expireTime: 'Expire Date',
-    createTime: 'Create Time',
-    reset: 'Reset Traffic',
-    pass: 'Password',
-    email: 'Email(Only support 163 126 qq gmail)',
-    oldPass: 'Old Password',
-    newPass: 'New Password',
-    nodeName: 'Node Name',
-    nodeDomain: 'Domain',
-    nodePort: 'Port',
-    nodePriority: 'Priority',
-    nodeType: 'Node Type',
-    nodeStatus: 'Status',
-    nodeStatusSuccess: 'success',
-    nodeStatusError: 'error',
-    password: 'password',
-    uuid: 'UUID',
-    alterId: 'Alter Id',
-    xrayProtocol: 'Protocol',
-    xrayFlow: 'Flow',
-    xraySSMethod: 'Encryption Method',
-    xraySSNetwork: 'Network protocol',
-    xraySocksUser: 'Username',
-    xraySocksPass: 'Password',
-    xraySocksUdp: 'Whether to enable UDP',
-    xrayStreamSettingsNetwork: 'Transmission Type',
-    xrayStreamSettingsSecurity: 'Transport Layer Encryption',
-    xrayStreamSettingsWsSettingsPath: 'Websocket Path',
-    xrayFallbacks: 'Fall Back',
-    trojanGoSni: 'SNI',
-    trojanGoMuxEnable: 'Enable Mux',
-    trojanGoWebsocketEnable: 'Enable Websocket',
-    trojanGoWebsocketPath: 'Websocket Path',
-    trojanGoWebsocketHost: 'Websocket Host',
-    trojanGoSsEnable: 'Enable SS AEAD',
-    trojanGoSsMethod: 'SS AEAD Method',
-    trojanGoSsPassword: 'SS AEAD Password',
-    hysteriaProtocol: 'Protocol',
-    hysteriaObfs: 'Obfuscated password',
-    hysteriaUpMbps: 'Maximum upload speed for a single client/Mbps',
-    hysteriaDownMbps: 'Maximum download speed for a single client/Mbps',
-    hysteriaServerName: 'SNI',
-    hysteriaInsecure: 'Allow insecure',
-    hysteriaFastOpen: 'Fast open',
-    naiveProxyUsername: 'Username',
-    hysteriaTip: 'The currently supported Hysteria is in the testing stage, and only supports user authentication and does not support traffic statistics.',
-    naiveproxyTip: 'The currently supported NaiveProxy is in the testing stage, and only supports user authentication and does not support traffic statistics.',
-    hysteria2ObfsPassword: 'Obfuscated password',
-    hysteria2UpMbps: 'Maximum upload speed for a single client/Mbps',
-    hysteria2DownMbps: 'Maximum download speed for a single client/Mbps',
-    hysteria2ServerName: 'SNI',
-    hysteria2Insecure: 'Allow insecure',
-    nodeQRCode: 'Generate QR code',
-    nodeURL: 'Copy URL',
-    detail: 'Details',
-    blackListIp: 'IP',
-    toEmail: 'To Email',
-    subject: 'Subject',
-    content: 'Content',
-    sendFail: 'Failed',
-    sendWait: 'Waiting',
-    sendSuccess: 'Success',
-    nodeServer: 'Server',
-    nodeServerIp: 'Server IP',
-    nodeServerName: 'Server Name',
-    nodeServerGrpcPort: 'Server API port',
-    trojanPanelCoreVersion: 'TP Core Version',
-    import: 'Import',
-    export: 'Export',
-    coverByAccountName: 'Whether to override by username',
-    coverByNodeServerName: 'Whether to override based on server name',
-    coverByNodeName: 'Whether to override based on node name',
-    yes: 'Yes',
-    no: 'No',
-    fileTaskName: 'Name',
-    fileTaskType: 'Type',
-    fileTaskStatus: 'Status',
-    fileTaskErrMsg: 'Error Message',
-    taskTypeAccountExport: 'Account Export',
-    taskTypeNodeServerExport: 'Server Export',
-    taskTypeAccountImport: 'Account Import',
-    taskTypeNodeServerImport: 'Server Import',
-    taskTypeNodeExport: 'Node export',
-    taskTypeNodeImport: 'Node import',
-    taskFail: 'Fail',
-    taskWait: 'Wait',
-    taskDoing: 'Doing',
-    taskSuccess: 'Success',
-    fileTaskAccountUsername: 'Creator',
-    fileTaskDownload: 'Download',
-    downloadTemplate: 'Download Template',
-    deleted: 'Whether to disable',
-    fingerprint: 'Fingerprint',
-    createBatch: 'Batch creation',
-    num: 'Quantity',
-    presetExpire: 'Default validity period/day',
-    presetQuota: 'Default quota/MB',
-    exportAccountUnused: 'Export unused accounts',
-    lastLoginTime: 'Last login time',
-    lastLoginTimeUnused: 'Have you used',
-    orderFields: 'Sort field',
-    orderBy: 'Sort by',
-    desc: 'Desc',
-    asc: 'Asc'
-  },
-  tagsView: {
-    refresh: 'Refresh',
-    close: 'Close',
-    closeOthers: 'Close Others',
-    closeAll: 'Close All'
-  },
-  settings: {
-    title: 'Page style setting',
-    theme: 'Theme Color',
-    tagsView: 'Open Tags-View',
-    fixedHeader: 'Fixed Header',
-    sidebarLogo: 'Sidebar Logo'
-  },
-  dashboard: {
-    diskUsed: 'Disk Usage',
-    memUsed: 'Memory Usage',
-    cpuUsed: 'CPU Usage',
-    expireTime: 'Expire Time',
-    nodeCount: 'Node Count',
-    onLine: 'OnLine',
-    residualFlow: 'Residual Flow',
-    quota: 'Quota',
-    accountCount: 'Account Count',
-    unlimited: 'UnLimited',
-    ranking: 'Ranking',
-    username: 'Username',
-    trafficUsed: 'Traffic Used',
-    trafficRank: 'Traffic Rank(Top 15, Update every hour)'
-  },
-  config: {
-    backupTip: 'Every day the panel database is packed into /tpdata/backup/daily and pruned by count; optionally the same archive is emailed to you.',
-    backupSecPolicy: 'Backup policy',
-    backupRefresh: 'Refresh',
-    backupRun: 'Backup now',
-    backupSave: 'Save',
-    backupOk: 'OK',
-    backupError: 'Failed',
-    backupLast: 'Last backup',
-    backupNone: 'Not yet',
-    backupNext: 'Next run',
-    backupEnable: 'Enable scheduled backup',
-    backupTime: 'Backup time',
-    backupRetention: 'Keep copies',
-    backupTimeHint: 'Runs once per day at this time',
-    backupRetentionHint: 'Older archives are deleted automatically',
-    backupMail: 'Email copy',
-    backupMailEnable: 'Also send to email',
-    backupTestMail: 'Send test mail',
-    backupSmtpHost: 'SMTP host',
-    backupSmtpUser: 'Mail account',
-    backupSmtpPass: 'App password',
-    backupSmtpPassSaved: 'Saved, leave blank to keep',
-    backupSmtpTo: 'Recipient',
-    backupSecPull: 'Pull by token (NAS / other hosts)',
-    backupPullOn: 'Enabled',
-    backupPullOff: 'Disabled',
+export default {
+
+  route: {
+
+    dashboard: 'Dashboard',
+
+    serverManage: 'Server Manage',
+
+    serverList: 'Server List',
+
+    serverDetail: 'Server Detail',
+
+    nodeManage: 'Node Manage',
+
+    nodeList: 'Node List',
+
+    accountManage: 'Account Manage',
+
+    accountList: 'Account List',
+
+    modifyPass: 'Change Password',
+
+    system: 'System Config',
+
+    baseConfig: 'Basic Config',
+
+    blackList: 'Black List Config',
+
+    emailManage: 'Email Manage',
+
+    emailRecord: 'Send Record',
+
+    profile: 'Profile',
+
+    taskManage: 'TaskManage',
+
+    taskList: 'TaskList',
+
+    modify: 'Modify Property'
+
+  },
+
+  navbar: {
+
+    size: 'Global Size',
+
+    profile: 'Profile',
+
+    github: 'Github',
+
+    doc: 'Docs',
+
+    logout: 'Log Out'
+
+  },
+
+  login: {
+
+    title: 'Trojan Panel',
+
+    logIn: 'Login',
+
+    username: 'Username',
+
+    password: 'Password',
+
+    register: 'No account?',
+
+    code: 'verification code'
+
+  },
+
+  register: {
+
+    title: 'User Registration',
+
+    username: 'Username',
+
+    passOne: 'Password',
+
+    pass: 'Password',
+
+    email: 'Email(Only support 163 126 qq gmail)',
+
+    register: 'Register',
+
+    login: 'Back to Login'
+
+  },
+
+  table: {
+
+    enable: 'Enable',
+
+    disable: 'Disable',
+
+    search: 'Search',
+
+    add: 'Add',
+
+    clashSubscribe: 'Clash.Meta Subscribe',
+
+    clashSubscribeForSb: 'Copy Subscribe',
+
+    actions: 'Actions',
+
+    edit: 'Edit',
+
+    delete: 'Delete',
+
+    cancel: 'Cancel',
+
+    confirm: 'Confirm',
+
+    id: 'ID',
+
+    status: 'Status',
+
+    username: 'Username',
+
+    role: 'Role',
+
+    quota: 'Quota',
+
+    download: 'Download',
+
+    upload: 'Upload',
+
+    editQuota: 'Quota/MB',
+
+    flow: 'Residual Flow',
+
+    expireTime: 'Expire Date',
+
+    createTime: 'Create Time',
+
+    reset: 'Reset Traffic',
+
+    pass: 'Password',
+
+    email: 'Email(Only support 163 126 qq gmail)',
+
+    oldPass: 'Old Password',
+
+    newPass: 'New Password',
+
+    nodeName: 'Node Name',
+
+    nodeDomain: 'Domain',
+
+    nodePort: 'Port',
+
+    nodePriority: 'Priority',
+
+    nodeType: 'Node Type',
+
+    nodeStatus: 'Status',
+
+    nodeStatusSuccess: 'success',
+
+    nodeStatusError: 'error',
+
+    password: 'password',
+
+    uuid: 'UUID',
+
+    alterId: 'Alter Id',
+
+    xrayProtocol: 'Protocol',
+
+    xrayFlow: 'Flow',
+
+    xraySSMethod: 'Encryption Method',
+
+    xraySSNetwork: 'Network protocol',
+
+    xraySocksUser: 'Username',
+
+    xraySocksPass: 'Password',
+
+    xraySocksUdp: 'Whether to enable UDP',
+
+    xrayStreamSettingsNetwork: 'Transmission Type',
+
+    xrayStreamSettingsSecurity: 'Transport Layer Encryption',
+
+    xrayStreamSettingsWsSettingsPath: 'Websocket Path',
+
+    xrayFallbacks: 'Fall Back',
+
+    trojanGoSni: 'SNI',
+
+    trojanGoMuxEnable: 'Enable Mux',
+
+    trojanGoWebsocketEnable: 'Enable Websocket',
+
+    trojanGoWebsocketPath: 'Websocket Path',
+
+    trojanGoWebsocketHost: 'Websocket Host',
+
+    trojanGoSsEnable: 'Enable SS AEAD',
+
+    trojanGoSsMethod: 'SS AEAD Method',
+
+    trojanGoSsPassword: 'SS AEAD Password',
+
+    hysteriaProtocol: 'Protocol',
+
+    hysteriaObfs: 'Obfuscated password',
+
+    hysteriaUpMbps: 'Maximum upload speed for a single client/Mbps',
+
+    hysteriaDownMbps: 'Maximum download speed for a single client/Mbps',
+
+    hysteriaServerName: 'SNI',
+
+    hysteriaInsecure: 'Allow insecure',
+
+    hysteriaFastOpen: 'Fast open',
+
+    naiveProxyUsername: 'Username',
+
+    hysteriaTip: 'The currently supported Hysteria is in the testing stage, and only supports user authentication and does not support traffic statistics.',
+
+    naiveproxyTip: 'The currently supported NaiveProxy is in the testing stage, and only supports user authentication and does not support traffic statistics.',
+
+    hysteria2ObfsPassword: 'Obfuscated password',
+
+    hysteria2UpMbps: 'Maximum upload speed for a single client/Mbps',
+
+    hysteria2DownMbps: 'Maximum download speed for a single client/Mbps',
+
+    hysteria2ServerName: 'SNI',
+
+    hysteria2Insecure: 'Allow insecure',
+
+    nodeQRCode: 'Generate QR code',
+
+    nodeURL: 'Copy URL',
+
+    detail: 'Details',
+
+    blackListIp: 'IP',
+
+    toEmail: 'To Email',
+
+    subject: 'Subject',
+
+    content: 'Content',
+
+    sendFail: 'Failed',
+
+    sendWait: 'Waiting',
+
+    sendSuccess: 'Success',
+
+    nodeServer: 'Server',
+
+    nodeServerIp: 'Server IP',
+
+    nodeServerName: 'Server Name',
+
+    nodeServerGrpcPort: 'Server API port',
+
+    trojanPanelCoreVersion: 'TP Core Version',
+
+    import: 'Import',
+
+    export: 'Export',
+
+    coverByAccountName: 'Whether to override by username',
+
+    coverByNodeServerName: 'Whether to override based on server name',
+
+    coverByNodeName: 'Whether to override based on node name',
+
+    yes: 'Yes',
+
+    no: 'No',
+
+    fileTaskName: 'Name',
+
+    fileTaskType: 'Type',
+
+    fileTaskStatus: 'Status',
+
+    fileTaskErrMsg: 'Error Message',
+
+    taskTypeAccountExport: 'Account Export',
+
+    taskTypeNodeServerExport: 'Server Export',
+
+    taskTypeAccountImport: 'Account Import',
+
+    taskTypeNodeServerImport: 'Server Import',
+
+    taskTypeNodeExport: 'Node export',
+
+    taskTypeNodeImport: 'Node import',
+
+    taskFail: 'Fail',
+
+    taskWait: 'Wait',
+
+    taskDoing: 'Doing',
+
+    taskSuccess: 'Success',
+
+    fileTaskAccountUsername: 'Creator',
+
+    fileTaskDownload: 'Download',
+
+    downloadTemplate: 'Download Template',
+
+    deleted: 'Whether to disable',
+
+    fingerprint: 'Fingerprint',
+
+    createBatch: 'Batch creation',
+
+    num: 'Quantity',
+
+    presetExpire: 'Default validity period/day',
+
+    presetQuota: 'Default quota/MB',
+
+    exportAccountUnused: 'Export unused accounts',
+
+    lastLoginTime: 'Last login time',
+
+    lastLoginTimeUnused: 'Have you used',
+
+    orderFields: 'Sort field',
+
+    orderBy: 'Sort by',
+
+    desc: 'Desc',
+
+    asc: 'Asc'
+
+  },
+
+  tagsView: {
+
+    refresh: 'Refresh',
+
+    close: 'Close',
+
+    closeOthers: 'Close Others',
+
+    closeAll: 'Close All'
+
+  },
+
+  settings: {
+
+    title: 'Page style setting',
+
+    theme: 'Theme Color',
+
+    tagsView: 'Open Tags-View',
+
+    fixedHeader: 'Fixed Header',
+
+    sidebarLogo: 'Sidebar Logo'
+
+  },
+
+  dashboard: {
+
+    diskUsed: 'Disk Usage',
+
+    memUsed: 'Memory Usage',
+
+    cpuUsed: 'CPU Usage',
+
+    expireTime: 'Expire Time',
+
+    nodeCount: 'Node Count',
+
+    onLine: 'OnLine',
+
+    residualFlow: 'Residual Flow',
+
+    quota: 'Quota',
+
+    accountCount: 'Account Count',
+
+    unlimited: 'UnLimited',
+
+    ranking: 'Ranking',
+
+    username: 'Username',
+
+    trafficUsed: 'Traffic Used',
+
+    trafficRank: 'Traffic Rank(Top 15, Update every hour)'
+
+  },
+
+  config: {
+
+    accountConfig: 'Account Config',
+
+    configWebFile: 'WebFile Config',
+
+    configEmail: 'Email Config',
+
+    registerEnable: 'Whether to enable registration',
+
+    registerQuota: 'Default quota for new account/MB',
+
+    registerExpireDays: 'Default expiry days for new account',
+
+    resetDownloadAndUploadMonth: 'Whether to reset download and upload traffic every month',
+
+    resetDownloadAndUploadMonthTip: 'Once enabled, upload/download traffic of normal users is reset at 00:00 on the 1st of each month (Asia/Shanghai)',
+
+    trafficRankEnable: 'Whether to enable traffic ranking',
+
+    captchaEnable: 'Whether to enable verification code login',
+
+    webFileBtn: 'upload to server',
+
+    webFileSelect: 'select file',
+
+    webFileTip: 'The file format only supports .zip, and the size cannot exceed 10MB',
+
+    imageFileTip: 'The file format only supports .png, and the size cannot exceed 3MB',
+
+    jsonFileTip: 'The file format only supports .json, and the size cannot exceed 10MB',
+
+    emailEnable: 'Enable Email',
+
+    emailHost: 'Email Host',
+
+    emailPort: 'Email Port',
+
+    emailUsername: 'Email Username',
+
+    emailPassword: 'Email Password',
+
+    expireWarnEnable: 'Enable expiration reminder',
+
+    expireWarnDay: 'Reminder days ahead',
+
+    expireWarnOnDay: 'Remind again on the expiration day (by email)',
+
+    quotaWarnEnable: 'Enable traffic usage reminder',
+
+    quotaWarnPercent: 'Traffic reminder threshold (percent, 1-100)',
+
+    templateConfig: 'Template Config',
+
+    dbGuard: 'Comm Firewall',
+
+    dbGuardTip: 'Controls public access to MariaDB (9507) and Redis (6378). Open mode is for temporary onboarding of a new server; whitelist mode only allows listed IPs.',
+
+    dbGuardMode: 'Current mode',
+
+    dbGuardOpen: 'Open ports',
+
+    dbGuardGuard: 'Whitelist mode',
+
+    dbGuardOpenHint: '9507 / 6378 are open to the internet',
+
+    dbGuardGuardHint: 'Only whitelisted IPs may connect; local loopback always works',
+
+    dbGuardPorts: 'Listening',
+
+    dbGuardRefresh: 'Refresh',
+
+    dbGuardAllow: 'Whitelist',
+
+    dbGuardAllowAdd: 'Enter IP or CIDR, e.g. 1.2.3.4 or 10.0.0.0/8',
+
+    dbGuardAdd: 'Add',
+
+    dbGuardAction: 'Action',
+
+    dbGuardRemove: 'Remove',
+
+    dbGuardAllowHint: 'Adding an entry switches to whitelist mode. Add the US server public IP when you onboard it.',
+
+    dbGuardOpenConfirm: '9507 / 6378 will be visible to the whole internet. Continue?',
+
+    dbGuardGuardConfirm: 'IPs outside the whitelist will lose database access. Continue?',
+
+    dbGuardOk: 'Confirm',
+
+    dbGuardCancel: 'Cancel',
+
+    dbGuardDone: 'Applied',
+    backupPull: 'Pull endpoint (NAS reverse sync)',
     backupPullTip: 'This token downloads full backups (DB + panel config). Treat it like a DB credential; reset it if leaked.',
     backupPullToken: 'Pull token',
-    backupPullDisabledHint: 'Disabled — token URL unavailable',
-    backupCopy: 'Copy',
     backupPullUrl: 'Pull URL (latest)',
+    backupCopy: 'Copy',
+    backupCopied: 'Copied',
     backupPullReset: 'Reset token',
-    backupPullResetHint: 'Reset invalidates the old URL; update the NAS job',
-    backupSecFiles: 'Local backup files',
-    backupSize: 'Size',
-    backupOps: 'Actions',
-    backupDownload: 'Download',
-    backupRestore: 'Restore',
+    backupPullResetConfirm: 'Old links stop working immediately and the NAS job must be updated. Continue?',
+    backupDav: 'WebDAV (NAS / cloud)',
+    backupDavEnable: 'Also write to WebDAV',
+    backupDavTip: 'UGREEN NAS / Jianguoyun / Nextcloud and alike',
+    backupDavUrl: 'WebDAV URL',
+    backupDavUser: 'Username',
+    backupDavPass: 'Password',
+    backupDavPassSaved: 'Saved, leave blank to keep',
+    backupDavDir: 'Folder',
+    backupTestDav: 'Test WebDAV',
     backupMerge: 'Add missing',
-    backupEmpty: 'No archives yet',
-    backupRestoreTitle: 'Restore (database only)',
-    backupRestoreTip: 'Restoring overwrites the current panel database (accounts, nodes, servers, tasks). The current DB is dumped to /tpdata/backup/pre-restore-*.sql.gz before the import; the panel and backend restart briefly.',
+    backupMergeRun: 'Upload & merge',
+    backupMergeConfirm: 'Only accounts present in the backup but missing now are added (matched by username+email). Nothing is overwritten or deleted. Continue?',
+    backupMergeDone: 'Missing accounts added; existing accounts and other data untouched.',
     backupRestoreMode: 'Restore mode',
     backupRestoreModeOverwrite: 'Overwrite (roll back to that point)',
     backupRestoreModeMerge: 'Add missing accounts only',
     backupRestoreModeTip: 'Overwrite discards accounts created after that backup. Use the merge mode if you only need the missing ones back.',
-    backupRestoreFrom: 'Archive',
-    backupRestorePick: 'Choose archive (.tar.gz)',
-    backupMergeRun: 'Upload & merge',
-    backupRestoreRun: 'Upload & restore',
-    backupTestDav: 'Test WebDAV',
-    backupLocal: 'Local archives',
-    backupDone: 'Saved',
+    backupPullOn: 'Enabled',
+    backupPullOff: 'Disabled',
     backupPullOnMsg: 'Pull enabled; the token URL works again',
     backupPullOffMsg: 'Pull disabled; the token URL stops working',
-    backupRunConfirm: 'Run one backup now?',
+    backupPullDisabledHint: 'Disabled — token URL unavailable',
+    backupPullResetHint: 'Reset invalidates the old URL; update the NAS job',
+    backupSecPolicy: 'Backup policy',
+    backupSecPull: 'Pull by token (NAS / other hosts)',
+    backupSecFiles: 'Local backup files',
+    backupOps: 'Actions',
+    backupRestoreFrom: 'Archive',
+    backupRestore: 'Restore',
+    backupRestoreTitle: 'Restore (database only)',
+    backupRestoreTip: 'Restoring overwrites the current panel database (accounts, nodes, servers, tasks). The current DB is dumped to /tpdata/backup/pre-restore-*.sql.gz before the import; the panel and backend restart briefly.',
+    backupRestorePick: 'Choose archive (.tar.gz)',
+    backupRestoreRun: 'Upload & restore',
+    backupRestoreConfirm: 'Overwrite the current database with this backup? The panel will be offline for tens of seconds.',
+    backupRestoreDone: 'Restore finished. If the session looks stale, sign out and sign in again.',
     backup: 'Scheduled Backup',
+    backupTip: 'Every day the panel database is packed into /tpdata/backup/daily and pruned by count; optionally the same archive is emailed to you.',
+    backupState: 'State',
+    backupOn: 'Enabled',
+    backupOff: 'Disabled',
+    backupLast: 'Last backup',
+    backupNext: 'Next run',
+    backupNone: 'Not yet',
+    backupOk: 'OK',
+    backupError: 'Failed',
+    backupEnable: 'Enable scheduled backup',
+    backupTime: 'Backup time',
+    backupTimeHint: 'Runs once per day at this time',
+    backupRetention: 'Keep copies',
+    backupRetentionHint: 'Older archives are deleted automatically',
+    backupLocal: 'Local archives',
+    backupDownload: 'Download',
+    backupSize: 'Size',
+    backupMail: 'Email copy',
+    backupMailEnable: 'Also send to email',
+    backupSmtpHost: 'SMTP host',
+    backupSmtpPort: 'Port',
+    backupSmtpUser: 'Mail account',
+    backupSmtpPass: 'App password',
+    backupSmtpTo: 'Recipient',
+    backupSmtpPassSaved: 'Saved, leave blank to keep',
+    backupTestMail: 'Send test mail',
+    backupSave: 'Save',
+    backupRun: 'Backup now',
+    backupRefresh: 'Refresh',
+    backupRunConfirm: 'Run one backup now?',
     backupOkBtn: 'OK',
     backupCancel: 'Cancel',
-    backupMergeDone: 'Missing accounts added; existing accounts and other data untouched.',
-    backupRestoreDone: 'Restore finished. If the session looks stale, sign out and sign in again.',
-    backupCopied: 'Copied',
-    backupPullResetConfirm: 'Old links stop working immediately and the NAS job must be updated. Continue?',
-    accountConfig: 'Account Config',
-    configWebFile: 'WebFile Config',
-    configEmail: 'Email Config',
-    registerEnable: 'Whether to enable registration',
-    registerQuota: 'Default quota for new account/MB',
-    registerExpireDays: 'Default expiry days for new account',
-    resetDownloadAndUploadMonth: 'Whether to reset download and upload traffic every month',
-    resetDownloadAndUploadMonthTip: 'Once enabled, upload/download traffic of normal users is reset at 00:00 on the 1st of each month (Asia/Shanghai)',
-    trafficRankEnable: 'Whether to enable traffic ranking',
-    captchaEnable: 'Whether to enable verification code login',
-    webFileBtn: 'upload to server',
-    webFileSelect: 'select file',
-    webFileTip: 'The file format only supports .zip, and the size cannot exceed 10MB',
-    imageFileTip: 'The file format only supports .png, and the size cannot exceed 3MB',
-    jsonFileTip: 'The file format only supports .json, and the size cannot exceed 10MB',
-    emailEnable: 'Enable Email',
-    emailHost: 'Email Host',
-    emailPort: 'Email Port',
-    emailUsername: 'Email Username',
-    emailPassword: 'Email Password',
-    expireWarnEnable: 'Enable expiration reminder',
-    expireWarnDay: 'Reminder days ahead',
-    expireWarnOnDay: 'Remind again on the expiration day (by email)',
-    quotaWarnEnable: 'Enable traffic usage reminder',
-    quotaWarnPercent: 'Traffic reminder threshold (percent, 1-100)',
-    templateConfig: 'Template Config',
-    dbGuard: 'Comm Firewall',
-    dbGuardTip: 'Controls public access to MariaDB (9507) and Redis (6378). Open mode is for temporary onboarding of a new server; whitelist mode only allows listed IPs.',
-    dbGuardMode: 'Current mode',
-    dbGuardOpen: 'Open ports',
-    dbGuardGuard: 'Whitelist mode',
-    dbGuardOpenHint: '9507 / 6378 are open to the internet',
-    dbGuardGuardHint: 'Only whitelisted IPs may connect; local loopback always works',
-    dbGuardPorts: 'Listening',
-    dbGuardRefresh: 'Refresh',
-    dbGuardAllow: 'Whitelist',
-    dbGuardAllowAdd: 'Enter IP or CIDR, e.g. 1.2.3.4 or 10.0.0.0/8',
-    dbGuardAdd: 'Add',
-    dbGuardAction: 'Action',
-    dbGuardRemove: 'Remove',
-    dbGuardAllowHint: 'Adding an entry switches to whitelist mode. Add the US server public IP when you onboard it.',
-    dbGuardOpenConfirm: '9507 / 6378 will be visible to the whole internet. Continue?',
-    dbGuardGuardConfirm: 'IPs outside the whitelist will lose database access. Continue?',
-    dbGuardOk: 'Confirm',
-    dbGuardCancel: 'Cancel',
-    dbGuardDone: 'Applied',
+    backupDone: 'Saved',
+    backupEmpty: 'No archives yet',
+
+
     dbGuardSync: 'Sync whitelist',
     dbGuardSyncDone: 'Whitelist synced',
     dbGuardInList: 'This IP is in the DB whitelist',
-    dbGuardNotInList: 'This IP is not whitelisted yet — click "Sync whitelist"',
-    systemLogo: 'Logo',
-    systemName: 'System Name',
-    clashRule: 'Clash Rule',
-    xrayTemplate: 'Xray Template',
-    modifyPass: 'Modify Pass',
-    modifyProperty: 'Modify Info',
-  },
-  valid: {
-    passNotSame: 'The two new passwords entered are inconsistent',
-    username: 'Please enter user name',
-    usernameRange: 'The name ranges between 6-20 characters',
-    usernameElement: 'Username must be a combination of letters and numbers',
-    usernameNotExistAdmin: 'Username cannot contain admin',
-    pass: 'Please enter password',
-    passNew: 'Please enter a new password',
-    passRange: 'Password range is between 6-20 characters',
-    passElement: 'Password must be a combination of letters and numbers',
-    quota: 'Please enter the total traffic',
-    quotaRange: 'The range of the total flow is an integer between -1-1024000',
-    emailRange: 'The range of mailbox is between 4-64 characters',
-    emailElement: 'Please enter the correct email format (only 163 126 qq gmail is supported)',
-    deleted: 'Please enter status',
-    expireTime: 'Please enter an expiration time',
-    nodeName: 'Please enter a node name',
-    nodeNameRange: 'Node names can range between 2-20 characters',
-    nodeServerId: 'Please enter server',
-    nodeDomain: 'Please enter a domain name',
-    nodeDomainRange: 'The range of the domain name is between 4-64 characters',
-    nodeDomainFormat: 'Please enter the correct domain name',
-    nodePort: 'Please enter the port',
-    nodePortRange: 'Please enter a legal port',
-    nodePriority: 'Please enter priority',
-    nodePriorityRange: 'Priority must be an integer',
-    nodeType: 'Please enter node type',
-    xrayProtocol: 'Please enter agreement',
-    xraySSMethod: 'Please enter the encryption method',
-    xraySSNetwork: 'Please enter network protocol',
-    xraySocksUser: 'Please enter username',
-    xraySocksPass: 'Please enter password',
-    xraySocksUserRange: 'Username range is between 2-64 characters',
-    xraySocksPassRange: 'Password range is between 2-64 characters',
-    xraySocksUdp: 'Please enter whether to enable UDP',
-    xrayNetwork: 'Please enter the transport type',
-    xraySecurity: 'Please enter Transport Layer Encryption',
-    xrayWsRange: 'Websocket paths range from 2-64 characters',
-    xrayHostRange: 'The range of Websocket Host is between 2-64 characters',
-    xrayFallbackPathPrefix: 'path must start with /',
-    xrayFallbackDest: 'Please enter dest',
-    xrayFallbackXver: 'xver can only make 1, 2, 3',
-    trojanGoSni: 'sni between 4-64 characters',
-    trojanGoMux: 'Please enter whether to enable multiplexing',
-    trojanGoWs: 'Please enter whether to enable Websocket',
-    trojanGoWsRange: 'Websocket paths range from 2-64 characters',
-    trojanGoWsHostRange: 'The range of Websocket Host is between 2-64 characters',
-    trojanGoSs: 'Please enter whether to enable SS AEAD',
-    trojanGoSsMethod: 'Please enter SS AEAD encryption method',
-    trojanGoSsPasswordRange: 'The range of SS AEAD password is between 2-32 characters',
-    hysteriaProtocol: 'Please enter the pattern',
-    hysteriaProtocolRange: 'Patterns range from 2-16 characters',
-    hysteriaObfsRange: 'The range of the obfuscated password is between 2-64 characters',
-    hysteriaUpMbps: 'Please enter the maximum upload speed/Mbps of a single client',
-    hysteriaUpMbpsRange: 'The maximum upload speed of a single client is an integer ranging from 1 to 9999999999',
-    hysteriaDownMbps: 'Please enter the maximum download speed/Mbps of a single client',
-    hysteriaDownMbpsRange: 'The maximum download speed of a single client is an integer ranging from 1 to 9999999999',
-    hysteriaServerNameRange: 'SNI ranges from 0-64 characters',
-    hysteriaInsecure: 'Please enter whether to allow insecure',
-    hysteriaFastOpen: 'Please enter whether to open quickly',
-    hysteria2ObfsPasswordRange: 'The range of the obfuscated password is between 4-64 characters',
-    hysteria2UpMbps: 'Please enter the maximum upload speed/Mbps of a single client',
-    hysteria2UpMbpsRange: 'The maximum upload speed of a single client is an integer ranging from 1 to 9999999999',
-    hysteria2DownMbps: 'Please enter the maximum download speed/Mbps of a single client',
-    hysteria2DownMbpsRange: 'The maximum download speed of a single client is an integer ranging from 1 to 9999999999',
-    hysteria2ServerNameRange: 'SNI ranges from 0-64 characters',
-    hysteria2Insecure: 'Please enter whether to allow insecure',
-    registerEnable: 'Please enter whether registration is open',
-    registerQuota: 'Please enter the default traffic for new users',
-    registerQuotaRange: 'The flow is between 0-1024000',
-    registerExpireDays: 'Please enter the default expiry days for new users',
-    registerExpireDaysRange: 'Days between 0-365',
-    resetDownloadAndUploadMonth: 'Please enter whether to reset download and upload traffic every month',
-    trafficRankEnable: 'Please enter whether to enable traffic ranking',
-    emailEnable: 'Please enter whether to enable the email function',
-    emailHostRange: 'The range of mailbox Host is between 3-64 characters',
-    emailPort: 'Please enter the email port',
-    emailPortRange: 'Please enter a legal port',
-    emailUsernameRange: 'The range of email username is between 3-32 characters',
-    emailPasswordRange: 'Please enter whether to enable expiration reminder',
-    expireWarnEnable: 'Please enter whether to enable expiration reminder',
-    expireWarnDay: 'Please enter whether to enable expiration reminder',
-    expireWarnDayRange: 'Days between 0-365',
-    expireWarnOnDay: 'Please enter whether to remind on expiration day',
-    quotaWarnEnable: 'Please enter whether to enable traffic reminder',
-    quotaWarnPercent: 'Please enter the traffic reminder threshold',
-    quotaWarnPercentRange: 'Threshold between 1-100',
-    uploadWebFileFormat: 'file format not supported',
-    uploadWebFileSize: 'the file is too big',
-    nodeServerName: 'Please enter a server name',
-    nodeServerNameRange: 'The server name can range between 2-20 characters',
-    ip: 'Please enter IP',
-    ipRange: 'The range of IP is between 4-64 characters',
-    systemName: 'Please enter a system name',
-    systemNameRange: 'System names range from 2-32 characters',
-    clashRuleRange: 'Clash rules range from 0-100000 characters',
-    xrayTemplateRange: 'The range of Xray templates is between 0-10000 characters',
-    cover: 'Please enter whether to overwrite',
-    code: 'please enter verification code',
-    emailAOrUsernameExist: 'E-mail and username must fill in one',
-    xrayStreamSettingsEntityRealitySettingsDest: 'please enter dest',
-    xrayStreamSettingsEntityRealitySettingsServerNames: 'please enter serverNames',
-    xrayStreamSettingsEntityRealitySettingsPrivateKey: 'please enter privateKey',
-    xrayStreamSettingsEntityRealitySettingsShortIds: 'please enter shortIds',
-    realityPbk: 'please enter publicKey',
-    xrayStreamSettingsEntityRealitySettingsXver: 'xver can only be 0, 1, 2',
-    createBatchNum: 'Please enter the quantity',
-    createBatchNumRange: 'The number is an integer in the range 5-200',
-    createBatchQuota: 'Please enter the total traffic',
-    createBatchQuotaRange: 'The range of the total flow is an integer between -1-1024000',
-    createBatchPresetExpire: 'Please enter a default validity period',
-    createBatchPresetExpireRange: 'The default validity period is an integer in the range 1-365',
-    createBatchPresetQuota: 'Please enter the default quota',
-    createBatchPresetQuotaRange: 'The default quota is an integer in the range 1-365'
-  },
-  confirm: {
-    warn: 'Warn',
-    yes: 'Yes',
-    cancel: 'Cancel',
-    deleteSuccess: 'delete successful',
-    createSuccess: 'create successful',
-    modifySuccess: 'modify successful',
-    resetSuccess: 'reset successful',
-    urlCopySuccess: 'URL copied successfully',
-    urlCopyFail: 'URL copy failed',
-    uploadWebFileSuccess: 'upload successful',
-    updateAccountPass: 'The modification is successful and will take effect the next time you log in',
-    updateAccountProperty: 'Successfully modified',
-    logoutPrompt: 'You are logged out, you can cancel to stay on this page, or log in again!',
-    logoutConfirm: 're-register',
-    authFail: 'Authentication failed, please log in again!',
-    deleteUser: 'Are you sure to delete this user?',
-    handleReset: "Are you sure to reset the user's download and upload traffic?",
-    deleteNode: 'Are you sure to delete this node?',
-    deleteNodeServer: 'Are you sure you want to delete this server?',
-    deleteBlack: 'Are you sure to delete this IP?',
-    taskSubmitSuccess: 'The task has been submitted successfully, please check it later in the task management',
-    taskDownloadSuccess: 'Download successful',
-    alreadyExists: 'Already Exists'
-  },
-  remark: {
-    emailEnable: 'Set up your mailbox to receive expiration reminder emails.'
-  }
-}
+    dbGuardNotInList: 'This IP is not whitelisted yet — click "Sync whitelist"',
+
+    systemLogo: 'Logo',
+
+    systemName: 'System Name',
+
+    clashRule: 'Clash Rule',
+
+    xrayTemplate: 'Xray Template',
+
+    modifyPass: 'Modify Pass',
+
+    modifyProperty: 'Modify Info',
+
+  },
+
+  valid: {
+
+    passNotSame: 'The two new passwords entered are inconsistent',
+
+    username: 'Please enter user name',
+
+    usernameRange: 'The name ranges between 6-20 characters',
+
+    usernameElement: 'Username must be a combination of letters and numbers',
+
+    usernameNotExistAdmin: 'Username cannot contain admin',
+
+    pass: 'Please enter password',
+
+    passNew: 'Please enter a new password',
+
+    passRange: 'Password range is between 6-20 characters',
+
+    passElement: 'Password must be a combination of letters and numbers',
+
+    quota: 'Please enter the total traffic',
+
+    quotaRange: 'The range of the total flow is an integer between -1-1024000',
+
+    emailRange: 'The range of mailbox is between 4-64 characters',
+
+    emailElement: 'Please enter the correct email format (only 163 126 qq gmail is supported)',
+
+    deleted: 'Please enter status',
+
+    expireTime: 'Please enter an expiration time',
+
+    nodeName: 'Please enter a node name',
+
+    nodeNameRange: 'Node names can range between 2-20 characters',
+
+    nodeServerId: 'Please enter server',
+
+    nodeDomain: 'Please enter a domain name',
+
+    nodeDomainRange: 'The range of the domain name is between 4-64 characters',
+
+    nodeDomainFormat: 'Please enter the correct domain name',
+
+    nodePort: 'Please enter the port',
+
+    nodePortRange: 'Please enter a legal port',
+
+    nodePriority: 'Please enter priority',
+
+    nodePriorityRange: 'Priority must be an integer',
+
+    nodeType: 'Please enter node type',
+
+    xrayProtocol: 'Please enter agreement',
+
+    xraySSMethod: 'Please enter the encryption method',
+
+    xraySSNetwork: 'Please enter network protocol',
+
+    xraySocksUser: 'Please enter username',
+
+    xraySocksPass: 'Please enter password',
+
+    xraySocksUserRange: 'Username range is between 2-64 characters',
+
+    xraySocksPassRange: 'Password range is between 2-64 characters',
+
+    xraySocksUdp: 'Please enter whether to enable UDP',
+
+    xrayNetwork: 'Please enter the transport type',
+
+    xraySecurity: 'Please enter Transport Layer Encryption',
+
+    xrayWsRange: 'Websocket paths range from 2-64 characters',
+
+    xrayHostRange: 'The range of Websocket Host is between 2-64 characters',
+
+    xrayFallbackPathPrefix: 'path must start with /',
+
+    xrayFallbackDest: 'Please enter dest',
+
+    xrayFallbackXver: 'xver can only make 1, 2, 3',
+
+    trojanGoSni: 'sni between 4-64 characters',
+
+    trojanGoMux: 'Please enter whether to enable multiplexing',
+
+    trojanGoWs: 'Please enter whether to enable Websocket',
+
+    trojanGoWsRange: 'Websocket paths range from 2-64 characters',
+
+    trojanGoWsHostRange: 'The range of Websocket Host is between 2-64 characters',
+
+    trojanGoSs: 'Please enter whether to enable SS AEAD',
+
+    trojanGoSsMethod: 'Please enter SS AEAD encryption method',
+
+    trojanGoSsPasswordRange: 'The range of SS AEAD password is between 2-32 characters',
+
+    hysteriaProtocol: 'Please enter the pattern',
+
+    hysteriaProtocolRange: 'Patterns range from 2-16 characters',
+
+    hysteriaObfsRange: 'The range of the obfuscated password is between 2-64 characters',
+
+    hysteriaUpMbps: 'Please enter the maximum upload speed/Mbps of a single client',
+
+    hysteriaUpMbpsRange: 'The maximum upload speed of a single client is an integer ranging from 1 to 9999999999',
+
+    hysteriaDownMbps: 'Please enter the maximum download speed/Mbps of a single client',
+
+    hysteriaDownMbpsRange: 'The maximum download speed of a single client is an integer ranging from 1 to 9999999999',
+
+    hysteriaServerNameRange: 'SNI ranges from 0-64 characters',
+
+    hysteriaInsecure: 'Please enter whether to allow insecure',
+
+    hysteriaFastOpen: 'Please enter whether to open quickly',
+
+    hysteria2ObfsPasswordRange: 'The range of the obfuscated password is between 4-64 characters',
+
+    hysteria2UpMbps: 'Please enter the maximum upload speed/Mbps of a single client',
+
+    hysteria2UpMbpsRange: 'The maximum upload speed of a single client is an integer ranging from 1 to 9999999999',
+
+    hysteria2DownMbps: 'Please enter the maximum download speed/Mbps of a single client',
+
+    hysteria2DownMbpsRange: 'The maximum download speed of a single client is an integer ranging from 1 to 9999999999',
+
+    hysteria2ServerNameRange: 'SNI ranges from 0-64 characters',
+
+    hysteria2Insecure: 'Please enter whether to allow insecure',
+
+    registerEnable: 'Please enter whether registration is open',
+
+    registerQuota: 'Please enter the default traffic for new users',
+
+    registerQuotaRange: 'The flow is between 0-1024000',
+
+    registerExpireDays: 'Please enter the default expiry days for new users',
+
+    registerExpireDaysRange: 'Days between 0-365',
+
+    resetDownloadAndUploadMonth: 'Please enter whether to reset download and upload traffic every month',
+
+    trafficRankEnable: 'Please enter whether to enable traffic ranking',
+
+    emailEnable: 'Please enter whether to enable the email function',
+
+    emailHostRange: 'The range of mailbox Host is between 3-64 characters',
+
+    emailPort: 'Please enter the email port',
+
+    emailPortRange: 'Please enter a legal port',
+
+    emailUsernameRange: 'The range of email username is between 3-32 characters',
+
+    emailPasswordRange: 'Please enter whether to enable expiration reminder',
+
+    expireWarnEnable: 'Please enter whether to enable expiration reminder',
+
+    expireWarnDay: 'Please enter whether to enable expiration reminder',
+
+    expireWarnDayRange: 'Days between 0-365',
+
+    expireWarnOnDay: 'Please enter whether to remind on expiration day',
+
+    quotaWarnEnable: 'Please enter whether to enable traffic reminder',
+
+    quotaWarnPercent: 'Please enter the traffic reminder threshold',
+
+    quotaWarnPercentRange: 'Threshold between 1-100',
+
+    uploadWebFileFormat: 'file format not supported',
+
+    uploadWebFileSize: 'the file is too big',
+
+    nodeServerName: 'Please enter a server name',
+
+    nodeServerNameRange: 'The server name can range between 2-20 characters',
+
+    ip: 'Please enter IP',
+
+    ipRange: 'The range of IP is between 4-64 characters',
+
+    systemName: 'Please enter a system name',
+
+    systemNameRange: 'System names range from 2-32 characters',
+
+    clashRuleRange: 'Clash rules range from 0-100000 characters',
+
+    xrayTemplateRange: 'The range of Xray templates is between 0-10000 characters',
+
+    cover: 'Please enter whether to overwrite',
+
+    code: 'please enter verification code',
+
+    emailAOrUsernameExist: 'E-mail and username must fill in one',
+
+    xrayStreamSettingsEntityRealitySettingsDest: 'please enter dest',
+
+    xrayStreamSettingsEntityRealitySettingsServerNames: 'please enter serverNames',
+
+    xrayStreamSettingsEntityRealitySettingsPrivateKey: 'please enter privateKey',
+
+    xrayStreamSettingsEntityRealitySettingsShortIds: 'please enter shortIds',
+
+    realityPbk: 'please enter publicKey',
+
+    xrayStreamSettingsEntityRealitySettingsXver: 'xver can only be 0, 1, 2',
+
+    createBatchNum: 'Please enter the quantity',
+
+    createBatchNumRange: 'The number is an integer in the range 5-200',
+
+    createBatchQuota: 'Please enter the total traffic',
+
+    createBatchQuotaRange: 'The range of the total flow is an integer between -1-1024000',
+
+    createBatchPresetExpire: 'Please enter a default validity period',
+
+    createBatchPresetExpireRange: 'The default validity period is an integer in the range 1-365',
+
+    createBatchPresetQuota: 'Please enter the default quota',
+
+    createBatchPresetQuotaRange: 'The default quota is an integer in the range 1-365'
+
+  },
+
+  confirm: {
+
+    warn: 'Warn',
+
+    yes: 'Yes',
+
+    cancel: 'Cancel',
+
+    deleteSuccess: 'delete successful',
+
+    createSuccess: 'create successful',
+
+    modifySuccess: 'modify successful',
+
+    resetSuccess: 'reset successful',
+
+    urlCopySuccess: 'URL copied successfully',
+
+    urlCopyFail: 'URL copy failed',
+
+    uploadWebFileSuccess: 'upload successful',
+
+    updateAccountPass: 'The modification is successful and will take effect the next time you log in',
+
+    updateAccountProperty: 'Successfully modified',
+
+    logoutPrompt: 'You are logged out, you can cancel to stay on this page, or log in again!',
+
+    logoutConfirm: 're-register',
+
+    authFail: 'Authentication failed, please log in again!',
+
+    deleteUser: 'Are you sure to delete this user?',
+
+    handleReset: "Are you sure to reset the user's download and upload traffic?",
+
+    deleteNode: 'Are you sure to delete this node?',
+
+    deleteNodeServer: 'Are you sure you want to delete this server?',
+
+    deleteBlack: 'Are you sure to delete this IP?',
+
+    taskSubmitSuccess: 'The task has been submitted successfully, please check it later in the task management',
+
+    taskDownloadSuccess: 'Download successful',
+
+    alreadyExists: 'Already Exists'
+
+  },
+
+  remark: {
+
+    emailEnable: 'Set up your mailbox to receive expiration reminder emails.'
+
+  }
+
+}
+
