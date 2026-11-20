@@ -19,6 +19,9 @@
       <el-tab-pane :label="$t('config.dbGuard')" name="config-db-guard">
         <firewall />
       </el-tab-pane>
+      <el-tab-pane :label="$t('config.backup')" name="config-backup">
+        <backup />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -29,11 +32,12 @@ import WebFile from './components/web-file'
 import Email from './components/email'
 import TemplateConfig from './components/template-config'
 import Firewall from './components/firewall'
+import Backup from './components/backup'
 import { selectSystemByName } from '@/api/system'
 
 export default {
   name: 'index',
-  components: { Account, WebFile, Email, TemplateConfig, Firewall },
+  components: { Account, WebFile, Email, TemplateConfig, Firewall, Backup },
   data() {
     return {
       activeName: 'account-config',
